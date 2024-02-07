@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App(Prototype2)</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./Sujen_Tamang_2407704.css" />
+  </head>
+  <body>
+
+    <!-- header start  -->
+    <nav>
+      <div class="search">
+        <div class="search-box">
+          <div class="search-field">
+            <input placeholder="Search..." class="input" type="text" id="inputCity">
+            <div class="search-box-icon">
+              <button class="btn-icon-content" onclick = "getWeather()">
+                <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- header end  -->
+    <!-- First row start -->
+    
+      <div class="content">
+       <div class="col1">
+        <div class="weatherOverview">
+          <div class="information">
+            <img
+              src="https://openweathermap.org/img/wn/10d@2x.png"
+              alt="Weather icon"
+              id="weatherIcon"
+            />
+            <h1 id="temp">28</h1>
+            <div class="detailInformation">
+              <p alt="WeatherStatus" id="status">Rainy storm cloud</p>
+            </div>
+            <hr />
+            <div class="belowInformation">
+              <div class="location" id="location">
+                <div class="icons">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <p id="city">Kathmandu, Nepal</p>
+              </div>
+              <div class="todayDate">
+                <div class="icons">
+                  <i class="fa-regular fa-calendar"></i>
+                </div>
+                <p id="date">19 December,2023 <span id="time">12:00pm</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <div class="information">
+            <h4>Today's highlight</h4>
+            <div class="col1">
+              <div class="windStatus">
+                <h5>Wind Status</h5>
+                <i class="fa-solid fa-wind fa-3x"></i>
+                <div class="detailInformation">
+                  <p id="wind"><span>7.90</span>km/h</p>
+                  <p id="time">5:01am</p>
+                </div>
+              </div>
+
+              <div class="sunrise_sunset">
+                <h5>Sunrise & Sunset</h5>
+                <div class="detail">
+                  <div class="sunrise">
+                    <i class="fa-solid fa-sun fa-3x"></i>
+                    <p>Sunrise</p>
+                    <h6 id="sunrise">5:50 AM</h6>
+                  </div>
+                  <div class="sunset">
+                    <i class="fa-solid fa-moon fa-3x"></i>
+                    <p>Sunset</p>
+                    <h6 id="sunset">5:50 PM</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col2">
+              <div class="humidity">
+                <h5 >Humidity</h5>
+                <div class="detail">
+                  <div class="percent">
+                    <p id="humidity"></p>
+                  </div>
+                  <div class="feedback">
+                    <i class="fa-solid fa-water"></i>
+                    <p>
+                      The dew point is 27&deg <br />
+                      right now
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="visuality">
+                <h5>Visuality</h5>
+                <div class="detail">
+                  <div class="percent">
+                    <p id="visuality"><span>03</span>km</p>
+                  </div>
+                  <div class="feedback">
+                    <i class="fa-solid fa-eye"></i>
+                    <p>
+                      Haze is affecting <br />
+                      visibility
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="feelsLike">
+                <h5 >Feels like</h5>
+                <div class="detail">
+                  <div class="percent">
+                    <p id="feelslike"><span>42&deg</span></p>
+                  </div>
+                  <div class="feedback">
+                    <i class="fa-solid fa-temperature-quarter"></i>
+                    <p>
+                      humidity is making <br />
+                      it feel hotter.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- First row end -->
+
+      <!-- Second row start -->
+      <div class="row2">
+        <div class="header">
+          <h3>7 DAY FORECAST</h3>
+        </div>
+        <div class="weekdays">
+        </div>  
+    </div>
+
+    <!-- Second row end
+      <footer>
+        &#169; All right reserved Sujen Tamang
+
+      </footer> -->
+    
+
+
+      
+      <script src="./Sujen_Tamang_2407704.js"></script>
+
+  </body
+
+</html>
