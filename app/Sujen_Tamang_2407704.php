@@ -58,12 +58,15 @@ function insertData($connection, $cityname, $json) {
         echo "Table does not exist.";
         return;
     }
-    $existing_sql = "SELECT * FROM $sanitizedCityName WHERE day_Of_Week = '$dayOfWeek'";
+    $existing_sql = "SELECT * FROM $sanitizedCityName WHERE Day_of_Week = '$dayOfWeek'";
     $existing_result = $connection->query($existing_sql);
 
     if ($existing_result->num_rows === 0) {
-        $sql_insert_data = "INSERT INTO $sanitizedCityName (city, imgcode, day_Of_Week, day_And_Date, windspeed, temperature, pressure, humidity) 
+        // $sql_insert_data = "INSERT INTO '$sanitizedCityName' (city, imgcode, Day_of_Week, Day_and_Date, windspeed, temperature, pressure, humidity) 
+        //             VALUES ('$cityname', '$imgcode','$dayOfWeek','$dayAndDate',$wind_speed, $temperature, $pressure, $humidity)";
+        $sql_insert_data = "INSERT INTO $sanitizedCityName (city, imgcode, Day_of_Week, Day_and_Date, windspeed, temperature, pressure, humidity) 
                     VALUES ('$cityname', '$imgcode','$dayOfWeek','$dayAndDate',$wind_speed, $temperature, $pressure, $humidity)";
+
 
         if ($connection->query($sql_insert_data) !== TRUE) {
             echo "Error inserting data: " . $connection->error;
@@ -77,8 +80,8 @@ function insertData($connection, $cityname, $json) {
             temperature = $temperature,
             pressure = $pressure,
             humidity = $humidity,
-            day_And_Date = '$dayAndDate'
-            WHERE day_Of_Week = '$dayOfWeek'";
+            Day_And_Date = '$dayAndDate'
+            WHERE Day_Of_Week = '$dayOfWeek'";
         if ($connection->query($update_sql) !== TRUE) {
             echo "Error updating data: " . $connection->error;
         }
@@ -105,6 +108,7 @@ $data = fetch_data($cityname);
 $json = json_encode($data, true );
 
 $connection = connect_database("localhost", "root", "", "weatherappdata");
+
 
 
 $servername = "localhost";
@@ -138,8 +142,8 @@ $connection ->query('
 CREATE TABLE IF NOT EXISTS '.$cityname.' (
     city varchar(50),
     imgcode varchar(50),
-    dayOfWeek varchar(20),
-    dayAndDate varchar(30),
+    Day_of_Week varchar(20),
+    Day_and_Date varchar(30),
     windspeed int(10),
     temperature int(10),
     pressure int(10),
