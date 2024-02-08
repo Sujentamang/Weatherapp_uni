@@ -38,11 +38,14 @@ function getWeather() {
     });
 
   function updateWeather(data) {
-    const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    localStorage.setItem("weatherData", JSON.stringify(data));
+    const storedData = localStorage.getItem("weatherData");
+    const accessData = JSON.parse(storedData);
+    const iconUrl = `https://openweathermap.org/img/wn/${accessData.weather[0].icon}@2x.png`;
     document.getElementById("weatherIcon").src = iconUrl;
 
     // //to change date and time to readable form
-    const newdate = data.dt;
+    const newdate = accessData.dt;
     const date = new Date(newdate * 1000);
     const month = date.getMonth();
     const lastestDate = date.getUTCDate();
@@ -76,7 +79,7 @@ function getWeather() {
       "Dec",
     ];
 
-    const newsunrise = data.sys.sunrise;
+    const newsunrise = accessData.sys.sunrise;
     const sunrisedate = new Date(newsunrise * 1000);
     const sunrisehour = sunrisedate.getHours();
     const sunrisehoursIn12hrFormat =
@@ -84,7 +87,7 @@ function getWeather() {
     const sunrisehoursAMPM = sunrisehour >= 13 ? "PM" : "AM";
     const sunriseminutes = sunrisedate.getMinutes();
 
-    const newsunset = data.sys.sunset;
+    const newsunset = accessData.sys.sunset;
     const sunsetdate = new Date(newsunset * 1000);
     const sunsethour = sunsetdate.getHours();
     const sunsethoursIn12hrFormat =
@@ -102,15 +105,18 @@ function getWeather() {
       date.getFullYear();
 
     document.getElementById("city").innerText = cityname;
-    document.getElementById("status").innerText = data.weather[0].description;
+    document.getElementById("status").innerText =
+      accessData.weather[0].description;
     document.getElementById("temp").innerText =
-      Math.round(data.main.temp) + " °C";
-    document.getElementById("humidity").innerText = data.main.humidity + " %";
+      Math.round(accessData.main.temp) + " °C";
+    document.getElementById("humidity").innerText =
+      accessData.main.humidity + " %";
     document.getElementById("feelslike").innerText =
-      Math.round(data.main.feels_like) + " °C";
-    document.getElementById("wind").innerText = data.wind.speed + " Km/hr";
+      Math.round(accessData.main.feels_like) + " °C";
+    document.getElementById("wind").innerText =
+      accessData.wind.speed + " Km/hr";
     document.getElementById("visuality").innerText =
-      data.visibility / 1000 + " Km";
+      accessData.visibility / 1000 + " Km";
     document.getElementById("sunrise").innerText =
       sunrisehoursIn12hrFormat + ":" + sunriseminutes + " " + sunrisehoursAMPM;
     document.getElementById("sunset").innerText =
