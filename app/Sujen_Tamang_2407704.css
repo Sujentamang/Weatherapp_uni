@@ -461,7 +461,6 @@ nav {
   backdrop-filter: blur(16.3px);
   -webkit-backdrop-filter: blur(16.3px);
   width: 980px;
-  /* margin-left: 10%; */
   margin-right: 8%;
 }
 
@@ -480,18 +479,8 @@ nav {
   transform: translate(-50px, 50px);
 }
 
-/* .weekdays {
-  display: flex;
-  flex-direction: row;
-  height: 250px;
-  width: 100%;
-  background-color: var(--highlightedColor);
-} */
-
 .week {
   padding: 18px;
-  /* height: 160px;
-  width: 130px; */
   border-radius: 16px;
   margin-top: 8px;
   margin-bottom: 8px;
@@ -513,6 +502,7 @@ nav {
   font: var(--primaryColor);
   font-weight: 600;
 }
+
 /* Second row end  */
 footer {
   background-color: var(--primaryColor);

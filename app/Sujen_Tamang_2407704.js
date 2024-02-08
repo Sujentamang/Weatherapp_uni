@@ -124,7 +124,9 @@ function getWeather() {
     while (pastdata.lastChild) {
       pastdata.removeChild(pastdata.firstChild);
     }
-    for (let i = 0; i < 7; i++) {
+    document.getElementById("7DaysForecast").innerHTML =
+      "7 Days Past weather of " + cityname;
+    for (let i = 0; i < previousdata.length; i++) {
       const iconCode = previousdata[i].imgcode;
       const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
       const datacontainer = document.createElement("div");
